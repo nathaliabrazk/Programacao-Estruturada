@@ -1,0 +1,25 @@
+//algoritmo que calcule a média aritmética de 3 números quaisquer
+//fornecidos pelo usuário
+int main(){
+	float n1, n2, n3;
+	float soma, media;
+	
+	printf("Digite o valor de n1:  ");
+	scanf("%f", &n1);
+
+	printf("Digite o valor de n2:  ");
+	scanf("%f", &n2);
+	
+	printf("Digite o valor de n3:  ");
+	scanf("%f", &n3);
+	
+	soma = n1 + n2 + n3;	
+	
+	media = soma / 3;
+	
+	printf("%f + %f + %f = %f\n", n1, n2, n3, soma);
+	printf("media: %f\n", media);
+	
+
+    return 0;
+}
