@@ -1,0 +1,22 @@
+//Altere o algoritmo anterior considerando que não se conhece quantos alunos esta turma tem
+//(menos que 50). O número de aluno será informado pelo usuário.
+#include <stdio.h>
+int main(){
+	int numeroAlunos;
+	printf("Informe a quantidade de alunos: ");
+	scanf("%d", &numeroAlunos);//10
+	double notas[numeroAlunos];//notas[10]
+	int i;
+	
+	for(i=0;i<numeroAlunos;i++){
+		printf("Digite a nota: ");
+		scanf("%lf", &notas[i]);
+		
+	}
+	
+	for(i=0;i<numeroAlunos;i++){
+		printf("nota: %.1lf\n", notas[i]);		
+	}
+	
+return 0;	
+}
