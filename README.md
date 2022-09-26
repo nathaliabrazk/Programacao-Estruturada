@@ -1,2 +1,2 @@
-# Algoritmos-Em-C
- Exercicios propostos 
+# Algoritmos Em C
+ Exercicios propostos pela disciplina "Programação Estruturada".
