@@ -1,0 +1,29 @@
+// Faça um algoritmo que leia até 30 letras e as escreva na ordem inversa (ou contrária) da que 
+//foram lidas.
+int main(){
+    char Letras[30];
+    char LeTrocada;
+    do{
+        ("Informe a quantidade de letras a serem lidas: ");
+        (scanf("%s", Letras);
+        if(Letras=>30){
+            break;
+        }
+        else{
+            printf("Quantidade de letras nao pode ultrapassar 30");
+        }
+    
+        
+
+
+
+    }
+    
+
+
+
+
+
+
+return 0;
+}
