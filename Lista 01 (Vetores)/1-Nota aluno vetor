@@ -1,6 +1,6 @@
 ///Escrever um programa que declare um vetor de reais e leia as notas de 30 alunos.
 #include<stdio.h>
-int main(){
+int main(void){
 double notas[30];
 int i;
 

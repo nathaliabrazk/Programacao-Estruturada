@@ -1,8 +1,7 @@
 //Faça um algoritmo que calcule e escreva o somatório dos valores armazenados numa variável
 //composta unidimensional, chamada dados, de até 100 elementos numéricos a serem lidos.
-#include <stdio.h>//Faça um algoritmo que calcule e escreva o somatório dos valores armazenados numa variável
-//composta unidimensional, chamada dados, de até 100 elementos numéricos a serem lidos.
-int main(){
+#include<stdio.h>
+int main(void){
     int elemento, soma=0;
     int i=0;
 

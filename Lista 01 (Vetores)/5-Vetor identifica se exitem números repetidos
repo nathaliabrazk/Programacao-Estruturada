@@ -1,0 +1,28 @@
+//Faça um algoritmo que leia um vetor de até 80 elementos. Após a leitura de todos os dados, leia 
+//um número e verifique se existem elementos no vetor iguais ao número lido. Se existirem, 
+//escrever, em uma tela limpa, quantas vezes eles aparecem e quais as posições em que eles estão 
+//armazenados no vetor
+#include<stdio.h>
+int main(void){
+	//declarações
+	int i, vet[10], numero, posicao;
+	//i=índice do vetor
+		//leitura e armazenamento dos vetores
+		for(i=0;i<10;i++){
+			printf("Digite o numero|%i|: ", i+1);
+			scanf("%i", &vet[i]);
+		}		//comparação do numero com os valores dos vetores
+				printf("\nDigite o numero a ser comparado com os valores do vetor: ");
+				scanf("%i", &numero);
+				printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					//impressão de resultados
+					for(i=0;i<10;i++){
+					if(numero==vet[i]){
+					printf("\nNumero existente no vetor\n");
+					printf("Posicao em que aparece: %i\n", i+1, numero);
+					}
+						}
+					return 0;
+					}
+		
+					
