@@ -14,7 +14,7 @@ int main(void){
 		}		//comparação do numero com os valores dos vetores
 				printf("\nDigite o numero a ser comparado com os valores do vetor: ");
 				scanf("%i", &numero);
-				printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				system("clear||cls");
 					//impressão de resultados
 					for(i=0;i<10;i++){
 					if(numero==vet[i]){
