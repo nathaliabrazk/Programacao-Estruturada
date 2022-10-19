@@ -26,5 +26,5 @@ int main(){
 								printf("Numero nao existe no vetor");
 							}
 	return 0;
-						}
+}
 					
