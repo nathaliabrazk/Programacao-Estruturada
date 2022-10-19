@@ -3,26 +3,28 @@
 //escrever, em uma tela limpa, quantas vezes eles aparecem e quais as posições em que eles estão 
 //armazenados no vetor
 #include<stdio.h>
-int main(void){
-	//declarações
-	int i, vet[10], numero, posicao;
-	//i=índice do vetor
-		//leitura e armazenamento dos vetores
-		for(i=0;i<10;i++){
-			printf("Digite o numero|%i|: ", i+1);
-			scanf("%i", &vet[i]);
-		}		//comparação do numero com os valores dos vetores
-				printf("\nDigite o numero a ser comparado com os valores do vetor: ");
-				scanf("%i", &numero);
-				system("clear||cls");
-					//impressão de resultados
-					for(i=0;i<10;i++){
-					if(numero==vet[i]){
-					printf("\nNumero existente no vetor\n");
-					printf("Posicao em que aparece: %i\n", i+1, numero);
-					}
+int main(){
+	//declaracao de variaveis
+	int i;
+	int vetor[80];
+	int numero=0;
+	
+	//estrutura de repeticao e armazenamento de dados
+		for(i=0;i<80;i++){
+			printf("Informe o  numero|%d|: ", i+1);
+			scanf("%d", &vetor[i]);
+		}
+				printf("\n\n\n");
+					printf("Informe o numero a ser encontrado no vetor: ");
+					scanf("%d", &numero);
+						
+						//estrutura de condicional
+						if(numero==vetor[i]){
+							printf("\nNumero existente no vetor\n");
+							printf("Posicao em que aparece: %d\n", i+1, numero);
+							}else{
+								printf("Numero nao existe no vetor");
+							}
+	return 0;
 						}
-					return 0;
-					}
-		
 					
