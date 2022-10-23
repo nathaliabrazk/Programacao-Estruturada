@@ -12,24 +12,24 @@ int main(void) {
 	int i,q;
 		//definicao de tamanho dos vetores
 		do{
-				printf("Informe a quantidade de cds a serem precificados: ");
-				scanf("%d", &q);
-				printf("\n\n");
-					if(q<=100){
-						break;
-					}else{
-						printf("Maximo de CDs e 100, por favor informe outro valor");
+			printf("Informe a quantidade de cds a serem precificados: ");
+			scanf("%d", &q);
+			printf("\n\n");
+				if(q<=100){
+				break;
+				}else{
+					printf("Maximo de CDs e 100, por favor informe outro valor");
 					}
-							}while(q<100);
-							//declaracao de variaveis com vetores
-							double cd[q], cd10[q],cdv[q], porcentagem;
-								//definicao de precos 
+				}while(q<100);
+					//declaracao de variaveis com vetores
+					double cd[q], cd10[q],cdv[q], porcentagem;
+						//definicao de precos 
+						for(i=0;i<q;i++){
+							printf("Informe o preco do cd|%d|:",i+1);
+							scanf("%lf", &cd[i]);
+							}
 								for(i=0;i<q;i++){
-									printf("Informe o preco do cd|%d|:",i+1);
-									scanf("%lf", &cd[i]);
-									}
-									for(i=0;i<q;i++){
-										cd10[i] = cd[i] + cd[i] * 0.10;
+									cd10[i] = cd[i] + cd[i] * 0.10;
 									}
 										//impressao de precos com aumento de 10%
 											printf("\n\n|Valores com aumento fixo|---------------------------------------------------------------------------------------------\n\n");
@@ -39,7 +39,7 @@ int main(void) {
 														//definicao de aumento informada pelo vendedor
 														printf("\nVendedor informe a porcentagem de aumento que deseja: ");
 														scanf("%lf", &porcentagem);
-			
+														
 															for(i=0;i<q;i++){
 																cdv[i]=cd[i] + cd[i] * (porcentagem/100);
 														}
