@@ -1,10 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define tam 300//tam=constante
-int main(void){
-//declaracao de variaveis
 int i,q, id, op;//op=opcao
 double altura;//q=quantidade de usuarios
+int main(void){
 
 //definicao do tamanho dos vetores
 do{
@@ -36,7 +35,7 @@ printf("Digite o endereco do usuario|%s|: ",nome[i]);
 scanf("%s", &endereco[i]);
 printf("\n");   
 }//fim da funcao cadastro
-    void pesquisa(){
+    void pesquisa();
         int emailPesq;
         do{
             printf("Digite 1 para pesquisar por email ou 2 para exibir os dados registrados.");
@@ -47,7 +46,7 @@ printf("\n");
             scanf("%d", &emailPesq);
             for(i=0;i<=q;i++);
             if(email[i]==emailPesq){
-                printf("Usuario|%s|-email: %s", nome, email[i])
+                printf("Usuario|%s|-email: %s", nome, email[i]);
             }
                 break;
             case 2:
