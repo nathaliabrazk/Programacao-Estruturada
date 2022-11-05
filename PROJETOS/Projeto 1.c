@@ -7,7 +7,6 @@ Utilizando os conceitos de vetor, implemente um algoritmo que:
 5-imprima todos os usuários cadastrados - ok case 5 pronto com bug
 6-faça backup dos usuários cadastrados;erro nas variaveis
 7-faça restauração dos dados;falta fazer
-
 Id (int) => preenchido automaticamente por números randômicos
 Nome completo (string)
 Email (string) => validação do campo: verificar se o caractere "@" aparece
@@ -276,4 +275,3 @@ int main (){
 }while(menu!=8);
 
 }
-
