@@ -13,19 +13,17 @@
 
 int main(){
 //Declaracao de todas as variaveis
-int i=0, id[TAM],idBackup[TAM];
+
+//variaveis %d/%i
+int i=0, menu, x, j, editar, index, excluir, repete=1, contador=1, cadastro=1, cadastroBacku,opcaoMenuAlterar, cadastroBackup;
+//variaveis %d com vetores
+int id[TAM],idBackup[TAM], vacina [TAM][4],vacinaBackup[TAM][4];
+//variavies %s
 char nome[TAM][50], email[TAM][50], sexo[TAM][15], endereco[TAM][50], emailBusca[TAM][50];//%s
 char nomeBackup[TAM][50], emailBackup[TAM][50], sexoBackup[TAM][15],enderecoBackup[TAM][50];//%s
 char alturaBackup[TAM];
-double altura[TAM];//%lf
-int vacina [TAM][4],vacinaBackup[TAM][4];//%s
-int menu;//%i
-int opcaoMenuAlterar,index;
-int x, j, editar, excluir;//%d
-int repete=1; 
-int contador=1;
-int cadastro=1;
-int cadastroBackup;
+//variavies %lf
+double altura[TAM];
 
 for(cadastroBackup = 0; cadastroBackup < 10; cadastroBackup++){
 	printf("%d", cadastroBackup);
@@ -33,7 +31,7 @@ for(cadastroBackup = 0; cadastroBackup < 10; cadastroBackup++){
 
 //inicio
 do{
-	printf("----------MENU----------\n\n");
+	printf("\n----------MENU----------\n\n");
 	printf("1 - Cadastrar um usuario\n");
 	printf("2 - Editar cadastro \n");
 	printf("3 - Buscar dados de usuario por email\n");
@@ -328,13 +326,14 @@ do{
             printf("Endereco:",enderecoBackup[j]);
             printf("Altura:",alturaBackup[j]);
             printf("Status de vacina:",vacinaBackup[j]);
-            
+            }//final do case 7
+            break;//break do case 7
+
+
+            //case 8-fechar programa
             case 8:
             printf("FIM DO PROGRAMA");
-            break;
-            }
-
-
+            break;//break do case 8
 
     }//fim do switch
 
