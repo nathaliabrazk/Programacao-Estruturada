@@ -1,10 +1,10 @@
 //incluir 1000 usuarios-OK
 //edite um usuario-OK
 //busque um usuario por email-OK
-//imprima os usuarios cadastrados-FALTA
-//backup-FALTA
-//excluir dados de registro-FALTA
-//restauracao de dados-FALTA
+//imprima os usuarios cadastrados-OK
+//backup-OK
+//excluir dados de registro-OK
+//restauracao de dados-OK
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -15,23 +15,32 @@ int main(){
 //Declaracao de todas as variaveis
 int i=0, id[TAM],idBackup[TAM];
 char nome[TAM][50], email[TAM][50], sexo[TAM][15], endereco[TAM][50], emailBusca[TAM][50];//%s
-char nomeBackup[TAM][50], emailBackup[TAM][50], sexoBackup[TAM][15], enderecoBackup[TAM][50];//%s
+char nomeBackup[TAM][50], emailBackup[TAM][50], sexoBackup[TAM][15],enderecoBackup[TAM][50];//%s
+char alturaBackup[TAM];
 double altura[TAM];//%lf
-char vacina [TAM][4];//%s
+int vacina [TAM][4],vacinaBackup[TAM][4];//%s
 int menu;//%i
 int opcaoMenuAlterar,index;
-int x, j, editar, excluir;//%d 
+int x, j, editar, excluir;//%d
+int repete=1; 
+int contador=1;
+int cadastro=1;
+int cadastroBackup;
+
+for(cadastroBackup = 0; cadastroBackup < 10; cadastroBackup++){
+	printf("%d", cadastroBackup);
+}
 
 //inicio
 do{
 	printf("----------MENU----------\n\n");
-	printf("1 - Cadastrar um usuario \n");
+	printf("1 - Cadastrar um usuario\n");
 	printf("2 - Editar cadastro \n");
-	printf("3 - Buscar dados de usuario por email  \n");
-	printf("4 - Iprimir todos suarios cadastrados \n");
+	printf("3 - Buscar dados de usuario por email\n");
+	printf("4 - Iprimir todos suarios cadastrados\n");
 	printf("5 - Realizar backup de dados\n");
-	printf("6 - Excluir dados de registro \n");
-	printf("7 - Restaurar dados \n");
+	printf("6 - Excluir dados de registro\n");
+	printf("7 - Restaurar dados\n");
     printf("8 - Fechar o programa\n\n");
     printf("Digite a opcao desejada: ");
 	fflush(stdin);
@@ -95,14 +104,14 @@ do{
         }//fim da validacao de altura
 
             //vacina
-            printf("Digite sim se voce foi vacinado ou nao, caso nao tenha sido: ");
+            printf("Digite 1 se voce foi vacinado ou 0, caso nao tenha sido: ");
 			fflush(stdin);
-			scanf("%s", &vacina[i]);
+			scanf("%d", &vacina[i]);
         //validacao de vacina
-        if(strcmp(vacina[i], "sim")==0){
-            printf("Voce tomou a vacina!\n\n");		
+        if(vacina[i]==0){
+            printf("Voce nao tomou a vacina!\n\n");		
         }else{
-            printf("Voce nao tomou a vacina!\n\n");
+            printf("Voce tomou a vacina!\n\n");
         }//fim da validacao de vacina
         break;
 
@@ -111,6 +120,20 @@ do{
         printf("Deseja editar algum usuario?\n Digite 1 para sim ou 2 para nao: ");
         fflush(stdin);
         scanf("%d", &editar);
+
+        
+        printf("Deseja inserir um usuário?  1 para sim ou 0 para nao: ");
+        fflush(stdin);
+        ("%d", &repete);
+
+        if(repete==0){
+             printf("Pessoas cadastradas %d\n",cadastro);
+             break;//break do repetir      
+        }
+        cadastro ++;
+        break;
+        contador=cadastro;
+        break;
 
         //impressao de opcoes para alteracao
         printf("----------MENU DE ALTERACAO----------\n");
@@ -203,8 +226,8 @@ do{
                                         if(opcaoMenuAlterar==15){
                                             printf("Alterar status de vacina: ");
 				                            fflush(stdin);
-				                            scanf("%s", &vacina[i]);
-                                            if(strcmp(vacina[i], "sim")== 0){
+				                            scanf("%s", &vacina[index]);
+                                            if(vacina[i]==0){
                                                 printf("Voce tomou a vacina!\n");
                                                 printf("Status de vacina alterado com sucesso!\n");
                                             }else{
@@ -251,9 +274,65 @@ do{
                 printf("Status de vacina:%s",vacina[i]);   
             }//final do laco de repeticao que imprime os usuarios
 
+            //case 5-realizar backup dos dados
+            case 5:
+            for(j = 0; j < 1000; j++){
+                strcpy(nomeBackup[j],nome[j]);
+				strcpy(emailBackup[j],email[j] );
+				strcpy( sexoBackup[j],sexo[j] );
+				strcpy(enderecoBackup[j],endereco[j]);
+				idBackup[j] == id[j];
+				alturaBackup[j] == altura[j];
+				vacinaBackup[j] == vacina[j];
+            }//final da repeticao para backup
+            printf("Backup concluido!\n");//printf do backup
+            //impressao dos dados de backup
+			for(j = 0; j < cadastro; j++){
+                printf("\n----------BACKUP----------\n");
+                printf("ID:%d",idBackup[j]);
+                printf("Index:%d",j);
+                printf("Nome:%s",nomeBackup[j]);
+                printf("Email:%s",emailBackup[j]);
+                printf("Sexo:%s",sexoBackup[j]);
+                printf("Endereco:%s",enderecoBackup[j]);
+                printf("Altura:%.2f",alturaBackup[j]);
+                printf("Status de vacina:%d",vacinaBackup[j]);
+            }//fim da impressao
 
+            //case 6-excluir dados de registro
+            case 6:
+            printf("Diigte o index: ");
+            fflush(stdin);
+            scanf("%d", &excluir);
+            //inicio do excluir
+            for(j = excluir; j != cadastro+1; j++){
+		
+                id[j] = id[j + 1];
+                strcpy(nome[j], nome[j + 1]);
+                strcpy(email[j], email[j + 1]);
+                strcpy(sexo[j], sexo[j + 1]);
+                strcpy(endereco[j], endereco[j + 1]);
+                altura[j] == altura[j + 1];
+                vacina[j] == vacina[j + 1];
+                
+            }//final de excluir
 
-
+            //case 7-restauracao de dados
+            case 7:
+            for(j = 0; j < 5; j++){
+            printf("ID:",idBackup[j]);
+            printf("Index:",j);
+            printf("Nome:",nomeBackup[j]);
+            printf("Email:",emailBackup[j]);
+            printf("Sexo:",sexoBackup[j]);
+            printf("Endereco:",enderecoBackup[j]);
+            printf("Altura:",alturaBackup[j]);
+            printf("Status de vacina:",vacinaBackup[j]);
+            
+            case 8:
+            printf("FIM DO PROGRAMA");
+            break;
+            }
 
 
 
