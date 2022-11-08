@@ -5,6 +5,9 @@
 //backup-OK
 //excluir dados de registro-OK
 //restauracao de dados-OK
+
+/*INTEGRANTES
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
