@@ -16,7 +16,6 @@ printf("\nNumeros digitados: %d",j);
 }
 
 
-
-}
+}//fim da main
     
 
