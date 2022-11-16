@@ -146,7 +146,7 @@ do{
 			printf("Digite a altura: ");
 			scanf("%lf", &usuario.altura[i]);
         //validacao da altura
-        if(altura[i] > 1.00 && altura[i] < 2.00){
+        if(altura[i] > 1.00 || altura[i] < 2.00){
             printf("Altura valida!\n\n");
         }else{
             printf("Altura invalida\n\n");
@@ -284,19 +284,20 @@ do{
 
             for(i=0;i<TAM;i++){
                 if(strcmp(usuario.email[i],emailBusca[i])==0){
+
                 //impressao de dados correspondentes ao email
                 printf("\n----------DADOS CORRESPONDENTES AO EMAIL----------\n");
-                printf("/ID:%d\n",id[x]);
-				printf("Nome:%s\n",usuario.nome[x]);
-				printf("Email:%s\n",usuario.email[x]);
-                printf("Sexo:%s\n",usuario.sexo[x]);
-                printf("Altura:%.2lf\n",usuario.altura[x]);
-                printf("Vacinado:%s\n",usuario.vacina[x]);
-				printf("Endereco:%s\n",usuario.endereco[x]);
-                printf("Rua:%s\n",ruaBackup[x]);
-                printf("Cidade:%s\n",enderecoC.cidade[x]);
-                printf("Estado:%s\n",enderecoC.estado[x]);
-                printf("CEP::%d\n",enderecoC.CEP[x]);
+                printf("/ID:%d\n",id[i]);
+				printf("Nome:%s\n",usuario.nome[i]);
+				printf("Email:%s\n",usuario.email[i]);
+                printf("Sexo:%s\n",usuario.sexo[i]);
+                printf("Altura:%.2lf\n",usuario.altura[i]);
+                printf("Vacinado:%s\n",usuario.vacina[i]);
+				printf("Endereco:%s\n",usuario.endereco[i]);
+                printf("Rua:%s\n",enderecoC.rua[i]);//erro na impressao do struct do endereco completo
+                printf("Cidade:%s\n",enderecoC.cidade[i]);
+                printf("Estado:%s\n",enderecoC.estado[i]);
+                printf("CEP::%d\n",enderecoC.CEP[i]);
 			
                 fflush(stdin);
                 }
@@ -307,17 +308,17 @@ do{
             case 4:
             //inicio da impressao dos usuarios 
             for(j=0;j<count;j++){
-                printf("----------USUARIOS CADASTRADOS----------\n");
-                printf("ID:%d",id[j]);
+                printf("\n----------USUARIOS CADASTRADOS----------\n");
+                printf("ID:%d\n",id[j]);
                 printf("Index:%d\n");
                 printf("Nome:%s\n",usuario.nome[j]);   
                 printf("Email:%s\n",usuario.email[j]);   
                 printf("Sexo:%s\n",usuario.sexo[j]);
                 printf("Altura %.2f\n",usuario.altura[j]);  
                 if (usuario.vacina[j] == 0){
-                	    printf("Status de vacina:Nao\n");
+                	printf("Status de vacina:Nao\n");
 				}else if (usuario.vacina[j] == 1){
-					 printf("Status de vacina:Sim\n");
+					printf("Status de vacina:Sim\n");
 				}
                 printf("Endereco:%s\n",usuario.endereco[j]);
                 printf("Rua:%s\n",enderecoC.rua[j]);
@@ -342,7 +343,6 @@ do{
 				strcpy(estadoBackup[j],enderecoC.estado[j]);
 				strcpy(CEPBackup[j],enderecoC.CEP[j]);
 				
-				
             }//final da repeticao para backup
 
             printf("Backup concluido!\n");//printf do backup
@@ -361,8 +361,7 @@ do{
                 printf("Rua:%s\n",ruaBackup[j]);
                 printf("Cidade:%s\n",cidadeBackup[j]);
                 printf("Estado:%s\n",estadoBackup[j]);
-                printf("CEP::%d\n",CEPBackup[j]);
-             
+                printf("CEP:%d\n",CEPBackup[j]);
            
             }//fim da impressao
 			break;//break da impressao de dados
@@ -388,8 +387,6 @@ do{
                 strcpy(enderecoC.estado[j],enderecoC.estado[j + 1]);
                 strcpy(enderecoC.CEP[j],enderecoC.CEP[j + 1]);
                
-         
-                
             }//final de excluir
             
 			break;//break do excluir
@@ -407,13 +404,12 @@ do{
 	            printf("Status de vacina:",vacinaBackup[j]);
 	            printf("Endereco:",enderecoBackup[j]);
 	            printf("Rua:",ruaBackup[j]);
-                printf("Cidade",cidadeBackup[j]);
-                printf("Estado",estadoBackup);
-                printf("CEP",CEPBackup[j]);
+                printf("Cidade:",cidadeBackup[j]);
+                printf("Estado:",estadoBackup);
+                printf("CEP:",CEPBackup[j]);
             }//final do case 7
             
             break;//break do case 7
-
 
             //case 8-fechar programa
             case 8:
