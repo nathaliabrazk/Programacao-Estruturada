@@ -23,8 +23,7 @@ struct cadastro_usuario{//tipo de dado
 struct cadastro_usuario  usuario;//variavel usuario do tipo cadastro_usuario
 
 struct endereco_completo_usuario{//tipo de dado
-	char rua[TAM][50], cidade[TAM][50], estado[TAM][50];
-	int CEP[TAM][50];
+	char rua[TAM][50], cidade[TAM][50], estado[TAM][50], CEP[TAM][50];
 };//definicao da struct para endereco
 
 //definicao de variavel
@@ -124,7 +123,8 @@ do{
 
             //CEP
             printf("Digite o CEP: ");
-            scanf("%d",&enderecoC.CEP[i]);
+            fflush(stdin);
+            fgets(enderecoC.estado[i],50,stdin);
             printf("\n");
 
         do{
@@ -182,25 +182,30 @@ do{
         scanf("%d", &index);
         
         printf("----------MENU DE ALTERACAO----------\n");
-		printf("10 - Nome\n");
-		printf("11 - Email\n");
-		printf("12 - Sexo\n");
-		printf("13 - Endereco\n");
-		printf("14 - Altura\n");
-		printf("15 - Vacina\n");
+		printf("1 - Nome\n");
+		printf("2 - Email\n");
+		printf("3 - Sexo\n");
+		printf("4 - Altura\n");
+		printf("5 - Vacina\n");
+        printf("6 - Endereco\n");
+        printf("7 - Rua:\n");
+        printf("8 - Cidade:\n");
+        printf("9 - Estado:\n");
+        printf("10 - CEP\n");
 	
 		printf("Digite o numero da informacao do cadastro voce quer alterar: ");
         fflush(stdin);
         scanf("%d", &opcaoMenuAlterar);
 
         //alterar nome
-        if(opcaoMenuAlterar==10){
+        if(opcaoMenuAlterar==1){
             printf("Alterar nome: ");
 	        fflush(stdin);
 	        fgets(usuario.nome[index],50,stdin);
-        }
-                     //alterar email
-            if(opcaoMenuAlterar==11){
+        }//fim do altera nome 
+
+            //alterar email
+            if(opcaoMenuAlterar==2){
                 printf("Alterar email: ");
                 fflush(stdin);
                 fgets(usuario.email[index],50,stdin);
@@ -221,7 +226,7 @@ do{
             }//fim do alterar email
 
                     //alterar sexo
-                    if(opcaoMenuAlterar==12){
+                    if(opcaoMenuAlterar==3){
                         printf("Alterar sexo: \n");
                         fflush(stdin);
                         scanf("%d",&usuario.sexo[i]);
@@ -234,48 +239,83 @@ do{
                         }//fim da validacao do alterar sexo 
 
                     }//fim do alterar sexo
-                         //alterar endereco
-                        if(opcaoMenuAlterar==13){
-                            printf("Alterar endereco: ");
-                            fflush(stdin);
-                            fgets(usuario.endereco[index],50,stdin);
-                            printf("Endereco alterado com sucesso!\n");
-                        }//fim do alterar endereco
+
+                         //alterar altura
+                        if(opcaoMenuAlterar==4){
+                            printf("Alterar altura: \n ");
+		                    scanf("%lf", &usuario.altura[i]);
+
+                            //validacao do alterar altura
+                            if(usuario.altura[i] >= 1.00 && usuario.altura[i] <= 2.00){
+                                printf("Altura valida\n");
+                                printf("Altura alterada com sucesso!\n");
+                            }else{
+                                printf("Altura invalida\n");
+			                    printf("Digite uma altura valida: ");
+			                    fflush(stdin);
+			                    scanf("%lf", &usuario.altura[i]);
+                                printf("Altura alterada com sucesso!\n");
+			                    printf("\n");
+
+                            }//fim da validacao do alterar altura
+                        
+                        }//fim do alterar altura
                        
-                            //alterar altura
-                            if(opcaoMenuAlterar==14){
-                                printf("Alterar altura: \n ");
-		                        scanf("%lf", &usuario.altura[i]);
-                                //validacao do alterar altura
-                                if(usuario.altura[i] >= 1.00 && usuario.altura[i] <= 2.00){
-                                    printf("Altura valida\n");
-                                    printf("Altura alterada com sucesso!\n");
+                            //alterar vacina
+                                if(opcaoMenuAlterar==5){
+                                    //alterar status de vacina
+                                    printf("Alterar status de vacina: ");
+                                    fflush(stdin);
+                                    scanf("%s", &usuario.vacina[index]);
+                                if(vacina[i]==0){
+                                    printf("Voce tomou a vacina!\n");
+                                    printf("Status de vacina alterado com sucesso!\n");
                                 }else{
-                                    printf("Altura invalida\n");
-			                        printf("Digite uma altura valida: ");
-			                        fflush(stdin);
-			                        scanf("%lf", &usuario.altura[i]);
-                                    printf("Altura alterada com sucesso!\n");
-			                        printf("\n");
-                                }//fim da validacao do alterar altura
+                                    printf("voce nao tomou a vacina.\n");
+                                    printf("Status de vacina alterado com sucesso!\n");
+                                }
+                                }//fim do validar status de vacina
+                                break;//break do alterar status de vacina
+                                        
+                                    //alterar endereco
+                                    if(opcaoMenuAlterar==6){
+                                        printf("Alterar endereco: ");
+                                        fflush(stdin);
+                                        fgets(usuario.endereco[index],50,stdin);
+                                        printf("Endereco alterado com sucesso!\n");
+                                    }//fim do alterar endereco
 
-                            }//fim do alterar altura
-                          
-                                        //alterar status de vacina
-                                        if(opcaoMenuAlterar==15){
-                                            printf("Alterar status de vacina: ");
-				                            fflush(stdin);
-				                            scanf("%s", &usuario.vacina[index]);
-                                            if(vacina[i]==0){
-                                                printf("Voce tomou a vacina!\n");
-                                                printf("Status de vacina alterado com sucesso!\n");
-                                            }else{
-                                                printf("voce nao tomou a vacina.\n");
-                                                printf("Status de vacina alterado com sucesso!\n");
-                                            }//fim do validar status de vacina
+                                        //alterar rua
+                                        if(opcaoMenuAlterar==7){
+                                            printf("Alterar rua: ");
+                                            fflush(stdin);
+                                            fgets(enderecoC.rua[index],50,stdin);
+                                            printf("Rua alterada com sucesso!\n");
+                                        }//fim do alterar rua
 
-                                        }//fim do alterar status de vacina
-                                        break;//break do alterar status de vacina
+                                            //alterar cidade
+                                            if(opcaoMenuAlterar==8){
+                                                printf("Alterar cidade: ");
+                                                fflush(stdin);
+                                                fgets(enderecoC.rua[index],50,stdin);
+                                                printf("Cidade alterada coom sucesso!\n");
+                                            }//fim do alterar cidade
+
+                                                //alterar estado
+                                                if(opcaoMenuAlterar==9){
+                                                printf("Alterar estado: ");
+                                                fflush(stdin);
+                                                fgets(enderecoC.estado[index],50,stdin);
+                                                printf("Estado alterado com sucesso!\n");
+                                                }//fim alterar estado
+
+                                                    //alterar CEP
+                                                    if(opcaoMenuAlterar==10){
+                                                        printf("Aterar CEP: ");
+                                                        fflush(stdin);
+                                                        fgets(enderecoC.CEP[index],50,stdin);
+                                                        printf("CEP alterado com sucesso!\n");
+                                                    }//fim do alterar CEP
 
         //case 3-Buscar dados de usuario por email                              
         case 3:
@@ -297,8 +337,7 @@ do{
                 printf("Rua:%s\n",enderecoC.rua[i]);//erro na impressao do struct do endereco completo
                 printf("Cidade:%s\n",enderecoC.cidade[i]);
                 printf("Estado:%s\n",enderecoC.estado[i]);
-                printf("CEP::%d\n",enderecoC.CEP[i]);
-			
+                printf("CEP:%s\n",enderecoC.CEP[i]);
                 fflush(stdin);
                 }
             }//fim do buscar dados de usuario por email
@@ -306,6 +345,7 @@ do{
 
             //case 4-imprima os usuarios cadastrados
             case 4:
+
             //inicio da impressao dos usuarios 
             for(j=0;j<count;j++){
                 printf("\n----------USUARIOS CADASTRADOS----------\n");
@@ -324,10 +364,11 @@ do{
                 printf("Rua:%s\n",enderecoC.rua[j]);
                 printf("Cidade:%s\n",enderecoC.cidade[j]);
                 printf("Estado:%s\n",enderecoC.estado[j]);
-                printf("CEP:%d\n",enderecoC.CEP[j]);
+                printf("CEP:%d\n",enderecoC.CEP[j]);//erro na impressao do cep(nao esta localizando o )
                
             }//final do laco de repeticao que imprime os usuarios
 		break;
+
             //case 5-realizar backup dos dados
             case 5:
             for(j = 0; j < TAM; j++){
@@ -362,7 +403,7 @@ do{
                 printf("Cidade:%s\n",cidadeBackup[j]);
                 printf("Estado:%s\n",estadoBackup[j]);
                 printf("CEP:%d\n",CEPBackup[j]);
-           
+                printf("Backup concluido com sucesso!\n");
             }//fim da impressao
 			break;//break da impressao de dados
 			
@@ -386,14 +427,14 @@ do{
                 strcpy(enderecoC.cidade[j],enderecoC.cidade[j + 1]);
                 strcpy(enderecoC.estado[j],enderecoC.estado[j + 1]);
                 strcpy(enderecoC.CEP[j],enderecoC.CEP[j + 1]);
-               
+                printf("Dados excluidos com sucesso!\n");
             }//final de excluir
             
 			break;//break do excluir
 			
             //case 7-restauracao de dados
             case 7:
-            for(j = 0; j < 5; j++){
+            for(j = 0; j < TAM; j++){
             	
 	            printf("ID:",idBackup[j]);
 	            printf("Index:",j);
@@ -407,6 +448,7 @@ do{
                 printf("Cidade:",cidadeBackup[j]);
                 printf("Estado:",estadoBackup);
                 printf("CEP:",CEPBackup[j]);
+                printf("Dados restaurados!\n");
             }//final do case 7
             
             break;//break do case 7
